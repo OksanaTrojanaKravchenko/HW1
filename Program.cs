@@ -8,10 +8,12 @@ namespace HW1
         {
             Console.WriteLine("How you prefer to be called?");
             Visitor visitor = new Visitor();
-            Console.WriteLine("Hello " + visitor.name + "!");
+            visitor.ReadNameFromConsole();
+            Console.WriteLine("Hello " + visitor.Name + "!");
             Console.ReadLine();
 
             Ex2FizzBuzz.FizzBuzz();
+            Console.ReadLine();
 
             Console.WriteLine("Guess the number");
             GuessGame.Guess();
@@ -19,6 +21,8 @@ namespace HW1
     }
     class Visitor
     {
-        public string name = Console.ReadLine();
+        public string Name;
+        public void ReadNameFromConsole() =>
+        Name = Console.ReadLine();
     }
 }

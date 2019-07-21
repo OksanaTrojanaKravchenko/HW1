@@ -9,45 +9,43 @@ namespace HW1
         public static void FizzBuzz()
         {
             int[] array = new int[100];
-            Random random1 = new Random();
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = random1.Next(1, 99);
+                array[i] = i + 1;
             }
-            int j = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                if (j == array[i] % 3 && j == array[i] % 5 && j == array[i] % 15)
-                    Console.WriteLine("FizzBuzz");
-                else if (j == array[i] % 3 && j != array[i] % 5 && j != array[i] % 15)
-                    Console.WriteLine("Fizz");
-                else if (j != array[i] % 3 && j == array[i] % 5 && j != array[i] % 15)
-                    Console.WriteLine("Buzz");
-                else
-                    Console.Write(array[i] + " ");
+                DivisibleByMethod(array[i]);
             }
             Console.ReadLine();
 
-            Console.WriteLine("\nPlease enter some number\n");
+            Console.WriteLine("\nPlease enter upper limit for your array\n");
 
             string maxValueString = Console.ReadLine();
             int maxValueInt = int.Parse(maxValueString);
-            Random random2 = new Random();
-            for (int i = 0; i < array.Length; i++)
+            int[] array2 = new int[maxValueInt];
+            for (int y = 0; y < array2.Length; y++)
             {
-                array[i] = random2.Next(1, maxValueInt);
+                array2[y] = y + 1;
             }
-            for (int i = 0; i < array.Length; i++)
+            for (int y = 0; y < maxValueInt; y++)
             {
-                if (j == array[i] % 3 && j == array[i] % 5 && j == array[i] % 15)
+                DivisibleByMethod(array2[y]);
+            }
+        }
+        static void DivisibleByMethod(int numberToDoFizzBuzz)
+        {
+            int zero = 0;
+            if (zero == numberToDoFizzBuzz % 15)
                     Console.WriteLine("FizzBuzz");
-                else if (j == array[i] % 3 && j != array[i] % 5 && j != array[i] % 15)
+            else if (zero == numberToDoFizzBuzz % 3 && zero != numberToDoFizzBuzz % 5)
                     Console.WriteLine("Fizz");
-                else if (j != array[i] % 3 && j == array[i] % 5 && j != array[i] % 15)
+
+            else if (zero != numberToDoFizzBuzz % 3 && zero == numberToDoFizzBuzz % 5)
                     Console.WriteLine("Buzz");
-                else
-                    Console.Write(array[i] + " ");
-            }
+
+            else
+                    Console.Write(numberToDoFizzBuzz + " ");
         }
     }
 }
