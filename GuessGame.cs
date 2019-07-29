@@ -8,20 +8,39 @@ namespace HW1
     {
         public static void Guess()
         {
+
             Random random = new Random();
-            int numberNeedToGuess = random.Next();
+            int numberNeedToGuess;
             int inputNumber;
+            int minValue = 1;
+            int maxValue = 101;
+            numberNeedToGuess = random.Next(minValue, maxValue);
+            //inputNumber = int.Parse(Console.ReadLine());
+            //inputNumber = int.TryParse(Console.ReadLine(), out var inputValue) ? inputValue : 0;
             do
             {
-                inputNumber = (int.Parse)(Console.ReadLine());
-                if (numberNeedToGuess < inputNumber)
-                    Console.WriteLine("Your input is greater. Please try again");
-                else if (numberNeedToGuess > inputNumber)
-                    Console.WriteLine("Your input is less. Please try again");
-                else
-                    Console.WriteLine("My greetings, you guessed");
+                if (int.TryParse(Console.ReadLine(), out inputNumber))
+
+                    if (inputNumber > numberNeedToGuess)
+                    {
+                        maxValue = inputNumber;
+                        Console.WriteLine($"Your input is greater. Bounds are: from { minValue} to { maxValue}");
+                    }
+                    else if (inputNumber < numberNeedToGuess)
+                    {
+                        minValue = inputNumber;
+                        Console.WriteLine($"Your input is less. Bounds are: from { minValue} to { maxValue}");
+                    }
+                    else if (inputNumber == numberNeedToGuess)
+                    {
+                        Console.WriteLine("My greetings, you guessed");
+                    }
+                    else
+                        Console.WriteLine("Your input is not a number. Please try again.");
             }
-            while (numberNeedToGuess != inputNumber);
+                while (numberNeedToGuess != inputNumber);
+
         }
+
     }
 }
