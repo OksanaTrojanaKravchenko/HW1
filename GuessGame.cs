@@ -19,7 +19,6 @@ namespace HW1
             bool IsInBounds (int number)
             {
                 if (inputNumber < maxValue && inputNumber > minValue)
-
                 {
                     return true;
                 }
