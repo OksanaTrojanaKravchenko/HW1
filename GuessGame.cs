@@ -15,11 +15,25 @@ namespace HW1
             int minValue = 1;
             int maxValue = 101;
             numberNeedToGuess = random.Next(minValue, maxValue);
+
+            bool IsInBounds (int number)
+            {
+                if (inputNumber < maxValue && inputNumber > minValue)
+
+                {
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine($"Your input is not into bounds. Bounds are: from { minValue} to { maxValue}");
+                    return false;
+                }
+            }
             //inputNumber = int.Parse(Console.ReadLine());
             //inputNumber = int.TryParse(Console.ReadLine(), out var inputValue) ? inputValue : 0;
             do
             {
-                if (int.TryParse(Console.ReadLine(), out inputNumber))
+                if ((int.TryParse(Console.ReadLine(), out inputNumber))&& IsInBounds(inputNumber))
 
                     if (inputNumber > numberNeedToGuess)
                     {
