@@ -14,7 +14,7 @@ namespace HW1
             int inputNumber;
             int minValue = 1;
             int maxValue = 101;
-            numberNeedToGuess = random.Next(minValue, maxValue);
+            numberNeedToGuess = random.Next(minValue+1, maxValue);
 
             bool IsInBounds (int number)
             {
